@@ -16,21 +16,18 @@ export namespace Refinement {
   export const miss = new Miss();
 
   /**
-   * Returns a `Refinement` (i.e. a custom type guard) from a `Option` returning function.
-   * This function ensures that a custom type guard definition is type-safe.
+   * Creates a type-safe refinement.
+   *
+   *  @example
    *
    *   ```ts
-   *   import Refinement from 'refinements'
-   *
-   *   type A = { type: 'A' }
-   *   type B = { type: 'B' }
-   *   type C = A | B
-   *
-   *   const isA = (c: C): c is A => c.type === 'B' // <= typo but typescript doesn't complain
-   *   const isA = getRefinement<C, A>(c => (c.type === 'B' ? some(c) : none)) // static error: Type '"B"' is not assignable to type '"A"'
+   *   const isString: Refinement<unknown, string> = Refinement.create(
+   *     candidate =>
+   *       typeof candidate === 'string'
+   *         ? Refinement.hit(candidate)
+   *         : Refinement.miss
+   *   )
    *   ```
-   *
-   * @since 2.0.0
    */
   export function create<T, U extends T>(
     refine: (candidate: T) => Result<U>
@@ -75,6 +72,8 @@ export function pipe<T>(...refinements: Refinement<any, any>[]): any {
 /**
  * Combines type guards.
  *
+ * @example
+ *
  *   ```ts
  *   declare function isString(candidate: unknown): candidate is string;
  *   declare function isNumber(candidate: unknown): candidate is number;
@@ -102,7 +101,13 @@ export function either<T>(...refinements: Refinement<any, any>[]): any {
  * @example
  *
  *   ```ts
- *   declare function isCat(pet: Cat | Dog): pet is Cat;
+ *   class Cat {}
+ *   class Dog {}
+ *
+ *   type Pet = Cat | Dog;
+ *
+ *   declare function isCat(pet: Pet): pet is Cat;
+ *
  *   const isDog = not(isCat);
  *   ```
  *
