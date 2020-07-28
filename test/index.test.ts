@@ -63,6 +63,12 @@ class Mango extends Fruit {
   }
 }
 
+class Banana extends Fruit {
+  constructor() {
+    super('banana');
+  }
+}
+
 abstract class Vegetable {}
 
 type Merchendise = Fruit | Vegetable;
@@ -92,6 +98,14 @@ describe('compose', () => {
 
     expect(compose(isFruit, isMango)(mango)).toEqual(isMango(mango));
   });
+
+  it('composes in the correct order', () => {
+    const banana = new Banana();
+
+    expect (isFruit(banana)).toBe(true);
+    expect (isMango(banana)).toBe(false);
+    expect(compose(isFruit, isMango)(banana)).toBe(false);
+  })
 });
 
 describe('either', () => {
