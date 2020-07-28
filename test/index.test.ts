@@ -102,10 +102,10 @@ describe('compose', () => {
   it('composes in the correct order', () => {
     const banana = new Banana();
 
-    expect (isFruit(banana)).toBe(true);
-    expect (isMango(banana)).toBe(false);
+    expect(isFruit(banana)).toBe(true);
+    expect(isMango(banana)).toBe(false);
     expect(compose(isFruit, isMango)(banana)).toBe(false);
-  })
+  });
 });
 
 describe('either', () => {
