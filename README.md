@@ -37,7 +37,7 @@ class Orange {}
 type Fruit = Mango | Orange;
 
 const isMango: Refinement<Fruit, Mango> = Refinement.create(
-  (fruit) =>
+  fruit =>
     fruit instanceof Mango
       ? Refinement.hit(fruit)
       : Refinement.miss
