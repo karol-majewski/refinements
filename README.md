@@ -181,7 +181,7 @@ const isStandard = not(isPrefixed);
 > const isNotString = not(isString);
 > ```
 >
-> The inferred type will be `(candidate: any) => candidate is any`, which is not what you want.
+> It will work, but the inferred type will be `(candidate: any) => candidate is any`.
 
 ## Contributing
 
