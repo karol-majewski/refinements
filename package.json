@@ -17,7 +17,6 @@
     "lint": "tsdx lint",
     "prepare": "tsdx build"
   },
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
   "peerDependencies": {},
   "husky": {
     "hooks": {
