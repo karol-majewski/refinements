@@ -32,6 +32,10 @@
   },
   "name": "refinements",
   "author": "Karol Majewski",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/karol-majewski/refinements"
+  },
   "module": "dist/refinements.esm.js",
   "devDependencies": {
     "husky": "^4.2.5",
