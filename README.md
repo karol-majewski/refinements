@@ -136,10 +136,10 @@ const isMango: Refinement<Fruit, Mango> = Refinement.create(
 Such refinements can be composed together.
 
 ```typescript
-import { either, pipe } from 'refinements';
+import { either, compose } from 'refinements';
 
 const isJuicy =
-  pipe(
+  compose(
     isFruit,
     either(isOrange, isMango)
 );

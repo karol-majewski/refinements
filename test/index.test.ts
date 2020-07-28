@@ -1,4 +1,4 @@
-import Refinement, { not, pipe, either } from '../src';
+import Refinement, { not, compose, either } from '../src';
 
 describe('creating refinements', () => {
   class Cat {
@@ -79,9 +79,9 @@ const isMango: Refinement<Fruit, Mango> = Refinement.create(fruit =>
   fruit instanceof Mango ? Refinement.hit(fruit) : Refinement.miss
 );
 
-describe('pipe', () => {
+describe('compose', () => {
   it('requires at least one argument', () => {
-    const clone = pipe(isMango);
+    const clone = compose(isMango);
     const mango = new Mango();
 
     expect(clone(mango)).toEqual(isMango(mango));
@@ -90,7 +90,7 @@ describe('pipe', () => {
   it('accepts two type guards', () => {
     const mango = new Mango();
 
-    expect(pipe(isFruit, isMango)(mango)).toEqual(isMango(mango));
+    expect(compose(isFruit, isMango)(mango)).toEqual(isMango(mango));
   });
 });
 

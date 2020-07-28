@@ -46,22 +46,22 @@ export namespace Refinement {
  *   declare function isReferenceError(candidate: Error): candidate is ReferenceError;
  *
  *   const isProgrammerError =
- *     pipe(
+ *     compose(
  *       isError,
  *       isReferenceError
  *     )
  *   ```
  */
-export function pipe<T, U extends T, V extends U, W extends V>(
+export function compose<T, U extends T, V extends U, W extends V>(
   ...refinements: [Refinement<T, U>, Refinement<U, V>, Refinement<V, W>]
 ): Refinement<T, W>;
-export function pipe<T, U extends T, V extends U>(
+export function compose<T, U extends T, V extends U>(
   ...refinements: [Refinement<T, U>, Refinement<U, V>]
 ): Refinement<T, V>;
-export function pipe<T, U extends T>(
+export function compose<T, U extends T>(
   ...refinements: [Refinement<T, U>]
 ): Refinement<T, U>;
-export function pipe<T>(...refinements: Refinement<any, any>[]): any {
+export function compose<T>(...refinements: Refinement<any, any>[]): any {
   return (candidate: T) =>
     refinements.reduce(
       (verdict, refinement) => verdict && refinement(candidate),
