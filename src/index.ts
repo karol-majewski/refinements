@@ -5,7 +5,9 @@ export namespace Refinement {
     constructor(readonly value: T) {}
   }
 
-  class Miss {}
+  class Miss {
+    readonly brand = 'none'
+  }
 
   type Result<T> = Hit<T> | Miss;
 
