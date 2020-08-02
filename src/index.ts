@@ -6,7 +6,7 @@ export namespace Refinement {
   }
 
   class Miss {
-    readonly brand = 'none';
+    readonly brand = 'miss';
   }
 
   type Result<T> = Hit<T> | Miss;
