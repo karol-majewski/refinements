@@ -22,6 +22,13 @@ describe('creating refinements', () => {
     expect(isCat(cat)).toBe(true);
     expect(isCat(dog)).toBe(false);
   });
+
+  it('requires the callback to return a Result', () => {
+    const isWindow: Refinement<unknown, Window> = Refinement.create(
+      // @ts-expect-error
+      candidate => true
+    );
+  });
 });
 
 describe('negating refinemenets', () => {
