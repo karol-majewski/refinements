@@ -78,6 +78,10 @@ const isString: Refinement<unknown, string> = Refinement.create(
 
 If we tried to replace, say, `typeof candidate === 'string'` with the incorrect `typeof candidate === 'number'`, we would get a compile-time error.
 
+Learn more about how it works:
+
+[![](https://img.youtube.com/vi/StyKp5dgN_Y/0.jpg)](http://www.youtube.com/watch?v=StyKp5dgN_Y 'Karol Majewski — “Who Guards the Type Guards?”')
+
 ## Examples
 
 ### Composition
