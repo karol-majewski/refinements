@@ -24,6 +24,8 @@ describe('creating refinements', () => {
   });
 
   it('requires the callback to return a Result', () => {
+    // @ts-ignore
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const isWindow: Refinement<unknown, Window> = Refinement.create(
       // @ts-expect-error
       candidate => true
