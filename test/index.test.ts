@@ -80,10 +80,10 @@ class Banana extends Fruit {
 
 abstract class Vegetable {}
 
-type Merchendise = Fruit | Vegetable;
+type Merchandise = Fruit | Vegetable;
 
-const isFruit: Refinement<Merchendise, Fruit> = Refinement.create(merchendise =>
-  merchendise instanceof Fruit ? Refinement.hit(merchendise) : Refinement.miss
+const isFruit: Refinement<Merchandise, Fruit> = Refinement.create(merchandise =>
+  merchandise instanceof Fruit ? Refinement.hit(merchandise) : Refinement.miss
 );
 
 const isOrange: Refinement<Fruit, Orange> = Refinement.create(fruit =>

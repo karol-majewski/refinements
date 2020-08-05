@@ -107,7 +107,7 @@ abstract class Vegetable {
   nutritious: boolean;
 }
 
-type Merchendise = Fruit | Vegetable;
+type Merchandise = Fruit | Vegetable;
 ```
 
 To navigate the hierarchy of our domain, we can create a refinement for every union that occurs in the domain.
@@ -115,10 +115,10 @@ To navigate the hierarchy of our domain, we can create a refinement for every un
 ```typescript
 import Refinement from 'refinements';
 
-const isFruit: Refinement<Merchendise, Fruit> = Refinement.create(
-  merchendise =>
-    merchendise instanceof Fruit
-      ? Refinement.hit(merchendise)
+const isFruit: Refinement<Merchandise, Fruit> = Refinement.create(
+  merchandise =>
+    merchandise instanceof Fruit
+      ? Refinement.hit(merchandise)
       : Refinement.miss
 );
 
