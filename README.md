@@ -3,14 +3,14 @@
 <p align="center">A type-safe alternative to standard <a href="https://www.typescriptlang.org/docs/handbook/advanced-types.html#user-defined-type-guards">user-defined type guards</a>. </p>
 
 <p align="center">
-  <a href="LICENSE">
-    <img alt="License" src="https://img.shields.io/npm/l/refinements.svg?logo=License&style=flat-square">
-  </a>
-  <a href="https://www.npmjs.com/package/refinements">
-    <img alt="Latest Release" src="https://img.shields.io/npm/v/refinements.svg?label=npm%40latest&style=flat-square">
+  <a href="Bundle size">
+    <img alt="Minified + gzipped size" src="https://img.shields.io/bundlephobia/minzip/refinements?label=minified%20%2B%20gzipped&style=flat-square">
   </a>
   <a href="CONTRIBUTING.md">
     <img alt="PRs welcome" src="https://img.shields.io/badge/PRs-welcome-green.svg?style=flat-square">
+  </a>
+  <a href="https://www.npmjs.com/package/refinements">
+    <img alt="Latest Release" src="https://img.shields.io/npm/v/refinements.svg?label=npm%40latest&style=flat-square">
   </a>
 </p>
 
